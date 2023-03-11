@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Qualifier("OTH")
-public class OvertimeHours implements HoursRepository {
+public class OvertimeHours implements HoursRepository{
     @Override
     public int getHours() {
         return 15;
