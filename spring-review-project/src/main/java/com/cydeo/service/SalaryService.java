@@ -20,9 +20,9 @@ public class SalaryService {
         }
 
         public void calculateRegularSalary(){
-        //HourlyRate * RegularHours
-        //65*40
-        System.out.println(employeeRepository.getHourlyRate() * hoursRepository.getHours());
+                //HourlyRate * RegularHours
+                //65*40
+                System.out.println(employeeRepository.getHourlyRate() * hoursRepository.getHours());
 
         }
 }
