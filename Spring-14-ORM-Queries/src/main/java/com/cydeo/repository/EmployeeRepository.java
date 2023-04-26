@@ -54,4 +54,5 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
     Employee getEmployeeDetail(String email,int salary);
 
 
-}
+
+    }
