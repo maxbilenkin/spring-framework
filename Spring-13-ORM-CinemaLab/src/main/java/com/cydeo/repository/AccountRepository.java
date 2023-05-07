@@ -60,6 +60,4 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
             "OR city ILIKE concat('%',?1,'%')",nativeQuery = true)
     List<Account>retrieveBySearchCriteria(@Param("pattern") String pattern);
 
-    //Write a native query to read all accounts with an age lower than a specific value
-
 }
