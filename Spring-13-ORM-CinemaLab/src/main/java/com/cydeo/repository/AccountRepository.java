@@ -56,8 +56,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     @Query(value = "SELECT * FROM account_details WHERE name ILIKE concat('%',?1,'%') " +
             "OR address ILIKE concat('%',?1,'%') " +
             "OR country ILIKE concat('%',?1,'%') " +
-            "OR state ILIKE concat('%', ?1,'%') " +
+            "OR state ILIKE concat('%',?1,'%') " +
             "OR city ILIKE concat('%',?1,'%')",nativeQuery = true)
-    List<Account>retrieveBySearchCriteria(@Param("pattern") String pattern);
+    List<Account> retrieveBySearchCriteria(@Param("pattern") String pattern);
 
 }

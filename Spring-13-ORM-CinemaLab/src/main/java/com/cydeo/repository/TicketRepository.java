@@ -40,7 +40,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     Integer countAllTicketsByUserAccount(@Param("userId") Long userId);
 
     //Write a native query to count the number of tickets a user bought in a specific range of dates
-    @Query(value = "SELECT COUNT(*) FROM ticket WHERE user_account_id = ?1 AND date_time BETWEEN ?2 AND ?3",nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM ticket WHERE user_account_id = ?1 AND date_time BETWEEN  ?2 AND ?3",nativeQuery = true)
     Integer countTicketByUserInDateRange(@Param("userId") Long userId,@Param("dateTime1") LocalDateTime dateTime1,@Param("dateTime2") LocalDateTime dateTime2);
 
     //Write a native query to distinct all tickets by movie name
@@ -50,7 +50,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     List<String> retrieveAllDistinctMovieNames();
 
     //Write a native query to find all tickets by user email
-    @Query(value = "SELECT * FROM ticket t JOIN user_account ON t.user_account_id = ua.id " +
+    @Query(value = "SELECT * FROM ticket t JOIN user_account ua ON t.user_account_id = ua.id " +
             "WHERE ua.email = ?1",nativeQuery = true)
     List<Ticket> findAllByUserEmail(@Param("email") String email);
 
@@ -60,8 +60,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     //Write a native query to list all tickets where a specific value should be containable in the username or name or movie name
 
-    @Query(value = "SELECT * FROM ticket t JOIN user_account ua ON t.user_account_id = ua.id" +
-            " JOIN account_details ad ON au.account_details_id = ad.id " +
+    @Query(value = "SELECT * FROM ticket t JOIN user_account ua ON t.user_account_id = ua.id " +
+            " JOIN account_details ad ON ua.account_details_id = ad.id " +
             " JOIN movie_cinema mc ON t.movie_cinema_id = mc.id " +
             " JOIN movie m ON mc.movie_id = m.id " +
             " WHERE ua.username ILIKE concat('%',?1,'%') " +

@@ -23,7 +23,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findAllByPriceBetween(BigDecimal priceStart,BigDecimal priceEnd);
 
     //Write a derived query to list all movies where duration exists in the specific list of duration
-    List<Movie> findByDurationIn(List<Integer> durations);
+    List<Movie> findAllByDurationIn(List<Integer> durations);
 
     //Write a derived query to list all movies with higher than a specific release date
     List<Movie> findAllByReleaseDateAfter(LocalDate releaseDate);
@@ -31,7 +31,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     //Write a derived query to list all movies with a specific state and type
     List<Movie> findAllByStateAndType(MovieState state, MovieType type);
 
-
+    //TASK 6MIN
     // ------------------- JPQL QUERIES ------------------- //
 
     //Write a JPQL query to list all movies between a range of prices
