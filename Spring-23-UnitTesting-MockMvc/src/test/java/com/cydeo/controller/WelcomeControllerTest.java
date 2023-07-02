@@ -28,7 +28,7 @@ class WelcomeControllerTest {
                 .accept(MediaType.APPLICATION_JSON);
 
         MvcResult result = mvc.perform(request).andReturn();
-        assertEquals(201, result.getResponse().getStatus());
+        assertEquals(200, result.getResponse().getStatus());
         assertEquals("welcome", result.getResponse().getContentAsString());
 
     }
